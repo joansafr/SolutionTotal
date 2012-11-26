@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditStTallerlaboratorioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputLabel value="#{bundle.EditStTallerlaboratorioLabel_fechaTallerLaboratorio}" for="fechaTallerLaboratorio" />
+                    <pou:calendar id="fechaTallerLaboratorio" value="#{stTallerlaboratorioController.selected.fechaTallerLaboratorio}" title="#{bundle.EditStTallerlaboratorioTitle_fechaTallerLaboratorio}" required="true" requiredMessage="#{bundle.EditStTallerlaboratorioRequiredMessage_fechaTallerLaboratorio}" pattern="yyyy-MM-dd" />
+                    <h:outputLabel value="#{bundle.EditStTallerlaboratorioLabel_horaInicioTallerLaboratorio}" for="horaInicioTallerLaboratorio" />
+                    <pou:inputText id="horaInicioTallerLaboratorio" value="#{stTallerlaboratorioController.selected.horaInicioTallerLaboratorio}" title="#{bundle.EditStTallerlaboratorioTitle_horaInicioTallerLaboratorio}" required="true" requiredMessage="#{bundle.EditStTallerlaboratorioRequiredMessage_horaInicioTallerLaboratorio}">
+                        <f:convertDateTime pattern="HH:mm" />
+                    </pou:inputText>
+                    <h:outputLabel value="#{bundle.EditStTallerlaboratorioLabel_horaTerminoTallerLaboratorio}" for="horaTerminoTallerLaboratorio" />
+                    <pou:inputText id="horaTerminoTallerLaboratorio" value="#{stTallerlaboratorioController.selected.horaTerminoTallerLaboratorio}" title="#{bundle.EditStTallerlaboratorioTitle_horaTerminoTallerLaboratorio}" required="true" requiredMessage="#{bundle.EditStTallerlaboratorioRequiredMessage_horaTerminoTallerLaboratorio}">
+                        <f:convertDateTime pattern="HH:mm" />
+                    </pou:inputText>
+                    <h:outputLabel value="#{bundle.EditStTallerlaboratorioLabel_codigoLaboratorio}" for="codigoLaboratorio" />
+                    <pou:selectOneMenu id="codigoLaboratorio" value="#{stTallerlaboratorioController.selected.codigoLaboratorio}" title="#{bundle.EditStTallerlaboratorioTitle_codigoLaboratorio}" required="true" requiredMessage="#{bundle.EditStTallerlaboratorioRequiredMessage_codigoLaboratorio}">
+                        <f:selectItems value="#{stLaboratorioController.itemsAvailableSelectOne}"/>
+                    </pou:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditStTallerlaboratorioLabel_codigoTaller}" for="codigoTaller" />
+                    <pou:selectOneMenu id="codigoTaller" value="#{stTallerlaboratorioController.selected.codigoTaller}" title="#{bundle.EditStTallerlaboratorioTitle_codigoTaller}" required="true" requiredMessage="#{bundle.EditStTallerlaboratorioRequiredMessage_codigoTaller}">
+                        <f:selectItems value="#{stTallerController.itemsAvailableSelectOne}"/>
+                    </pou:selectOneMenu>
+                </pou:panelGrid>
+                <pou:commandButton ajax="false" action="#{stTallerlaboratorioController.update}" value="#{bundle.EditStTallerlaboratorioSaveLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="View" value="#{bundle.EditStTallerlaboratorioViewLink}" immediate="true"/>
+                <br />
+                <pou:commandButton ajax="false" action="#{stTallerlaboratorioController.prepareList}" value="#{bundle.EditStTallerlaboratorioShowAllLink}" immediate="true"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

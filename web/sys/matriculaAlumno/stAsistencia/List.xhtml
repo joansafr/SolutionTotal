@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListStAsistenciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <pou:growl id="growl" />
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListStAsistenciaEmpty}" rendered="#{stAsistenciaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{stAsistenciaController.items.rowCount > 0}">
+                    <pou:dataTable style="width: 95%;margin-right: auto; padding-left: 2%" value="#{stAsistenciaController.items}" var="item"  >
+                        <pou:column>
+                            <f:facet name="header">
+                                <h:outputText value="Opciones de Obj."/>
+                            </f:facet>
+                            <pou:commandButton ajax="false" action="#{stAsistenciaController.prepareView}" icon="ui-icon-disk"/>
+                            <h:outputText value=" "/>
+                            <pou:commandButton ajax="false" action="#{stAsistenciaController.prepareEdit}" icon="ui-icon-pencil"/>
+                            <h:outputText value=" "/>
+                            <pou:commandButton ajax="false" action="#{stAsistenciaController.destroy}" icon="ui-icon-trash"/>
+                        </pou:column>
+                        <pou:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStAsistenciaTitle_fechaTallerAlumno}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaTallerAlumno}">
+                                <f:convertDateTime pattern="yyyy-MM-dd" />
+                            </h:outputText>
+                        </pou:column>
+                        <pou:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStAsistenciaTitle_codigoTallerAlumno}"/>
+                            </f:facet>
+                            <h:outputText value="[#{item.codigoTallerAlumno.codigoTaller.codigoCiclo.anoCiclo}-#{item.codigoTallerAlumno.codigoTaller.codigoCiclo.numeroCiclo}] #{item.codigoTallerAlumno.codigoTaller.codigoCurso.nombreCurso} (#{item.codigoTallerAlumno.codigoTaller.precioTaller}) - [#{item.codigoTallerAlumno.codigoAlumno.codigoAlumno}] #{item.codigoTallerAlumno.codigoAlumno.nombreAlumno} #{item.codigoTallerAlumno.codigoAlumno.apellidoPaternoAlumno} #{item.codigoTallerAlumno.codigoAlumno.apellidoMaternoAlumno}"/>
+                        </pou:column>
+                    </pou:dataTable>
+                </h:panelGroup>
+                <br />
+                <pou:commandButton ajax="false" action="#{stAsistenciaController.prepareCreate}" value="#{bundle.ListStAsistenciaCreateLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

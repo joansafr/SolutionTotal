@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewStCursoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputText value="#{bundle.ViewStCursoLabel_nombreCurso}"/>
+                    <h:outputText value="#{stCursoController.selected.nombreCurso}" title="#{bundle.ViewStCursoTitle_nombreCurso}"/>
+                    <h:outputText value="#{bundle.ViewStCursoLabel_maximaCantidadHorasCurso}"/>
+                    <h:outputText value="#{stCursoController.selected.maximaCantidadHorasCurso}" title="#{bundle.ViewStCursoTitle_maximaCantidadHorasCurso}"/>
+                    <h:outputText value="#{bundle.ViewStCursoLabel_codigoCursoTipo}"/>
+                    <h:outputText value="#{stCursoController.selected.codigoCursoTipo}" title="#{bundle.ViewStCursoTitle_codigoCursoTipo}"/>
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stCursoController.destroyAndView}" value="#{bundle.ViewStCursoDestroyLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="Edit" value="#{bundle.ViewStCursoEditLink}"/>
+                <br />
+                <pou:commandButton ajax="false" action="#{stCursoController.prepareCreate}" value="#{bundle.ViewStCursoCreateLink}" />
+                <br />
+                <pou:commandButton ajax="false" action="#{stCursoController.prepareList}" value="#{bundle.ViewStCursoShowAllLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

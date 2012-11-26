@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewStUsuarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputText value="#{bundle.ViewStUsuarioLabel_nombreUsuario}"/>
+                    <h:outputText value="#{stUsuarioController.selected.nombreUsuario}" title="#{bundle.ViewStUsuarioTitle_nombreUsuario}"/>
+                    <h:outputText value="#{bundle.ViewStUsuarioLabel_apellidoPaternoUsuario}"/>
+                    <h:outputText value="#{stUsuarioController.selected.apellidoPaternoUsuario}" title="#{bundle.ViewStUsuarioTitle_apellidoPaternoUsuario}"/>
+                    <h:outputText value="#{bundle.ViewStUsuarioLabel_apellidoMaternoUsuario}"/>
+                    <h:outputText value="#{stUsuarioController.selected.apellidoMaternoUsuario}" title="#{bundle.ViewStUsuarioTitle_apellidoMaternoUsuario}"/>
+                    <h:outputText value="#{bundle.ViewStUsuarioLabel_identificadorUsuario}"/>
+                    <h:outputText value="#{stUsuarioController.selected.identificadorUsuario}" title="#{bundle.ViewStUsuarioTitle_identificadorUsuario}"/>
+                    <h:outputText value="#{bundle.ViewStUsuarioLabel_codigoUsuarioTipo}"/>
+                    <h:outputText value="#{stUsuarioController.selected.codigoUsuarioTipo.nombreUsuarioTipo}" title="#{bundle.ViewStUsuarioTitle_codigoUsuarioTipo}"/>
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stUsuarioController.destroyAndView}" value="#{bundle.ViewStUsuarioDestroyLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="Edit" value="#{bundle.ViewStUsuarioEditLink}"/>
+                <br />
+                <pou:commandButton ajax="false" action="#{stUsuarioController.prepareCreate}" value="#{bundle.ViewStUsuarioCreateLink}" />
+                <br />
+                <pou:commandButton ajax="false" action="#{stUsuarioController.prepareList}" value="#{bundle.ViewStUsuarioShowAllLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

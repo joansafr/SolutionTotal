@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewStAsistenciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputText value="#{bundle.ViewStAsistenciaLabel_fechaTallerAlumno}"/>
+                    <h:outputText value="#{stAsistenciaController.selected.fechaTallerAlumno}" title="#{bundle.ViewStAsistenciaTitle_fechaTallerAlumno}">
+                        <f:convertDateTime pattern="yyyy-MM-dd" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewStAsistenciaLabel_codigoTallerAlumno}"/>
+                    <h:outputText value="[#{stAsistenciaController.selected.codigoTallerAlumno.codigoTaller.codigoCiclo.anoCiclo}-#{stAsistenciaController.selected.codigoTallerAlumno.codigoTaller.codigoCiclo.numeroCiclo}] #{stAsistenciaController.selected.codigoTallerAlumno.codigoTaller.codigoCurso.nombreCurso} (#{stAsistenciaController.selected.codigoTallerAlumno.codigoTaller.precioTaller}) - [#{stAsistenciaController.selected.codigoTallerAlumno.codigoAlumno.codigoAlumno}] #{stAsistenciaController.selected.codigoTallerAlumno.codigoAlumno.nombreAlumno} #{stAsistenciaController.selected.codigoTallerAlumno.codigoAlumno.apellidoPaternoAlumno} #{stAsistenciaController.selected.codigoTallerAlumno.codigoAlumno.apellidoMaternoAlumno}" title="#{bundle.ViewStAsistenciaTitle_codigoTallerAlumno}"/>
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stAsistenciaController.destroyAndView}" value="#{bundle.ViewStAsistenciaDestroyLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="Edit" value="#{bundle.ViewStAsistenciaEditLink}"/>
+                <br />
+                <pou:commandButton ajax="false" action="#{stAsistenciaController.prepareCreate}" value="#{bundle.ViewStAsistenciaCreateLink}" />
+                <br />
+                <pou:commandButton ajax="false" action="#{stAsistenciaController.prepareList}" value="#{bundle.ViewStAsistenciaShowAllLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewStCicloTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputText value="#{bundle.ViewStCicloLabel_anoCiclo}"/>
+                    <h:outputText value="#{stCicloController.selected.anoCiclo}" title="#{bundle.ViewStCicloTitle_anoCiclo}"/>
+                    <h:outputText value="#{bundle.ViewStCicloLabel_numeroCiclo}"/>
+                    <h:outputText value="#{stCicloController.selected.numeroCiclo}" title="#{bundle.ViewStCicloTitle_numeroCiclo}"/>
+                    <h:outputText value="#{bundle.ViewStCicloLabel_fechaInicioCiclo}"/>
+                    <h:outputText value="#{stCicloController.selected.fechaInicioCiclo}" title="#{bundle.ViewStCicloTitle_fechaInicioCiclo}">
+                        <f:convertDateTime pattern="yyyy-MM-dd" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewStCicloLabel_fechaFinCiclo}"/>
+                    <h:outputText value="#{stCicloController.selected.fechaFinCiclo}" title="#{bundle.ViewStCicloTitle_fechaFinCiclo}">
+                        <f:convertDateTime pattern="yyyy-MM-dd" />
+                    </h:outputText>
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stCicloController.destroyAndView}" value="#{bundle.ViewStCicloDestroyLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="Edit" value="#{bundle.ViewStCicloEditLink}"/>
+                <br />
+                <pou:commandButton ajax="false" action="#{stCicloController.prepareCreate}" value="#{bundle.ViewStCicloCreateLink}" />
+                <br />
+                <pou:commandButton ajax="false" action="#{stCicloController.prepareList}" value="#{bundle.ViewStCicloShowAllLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

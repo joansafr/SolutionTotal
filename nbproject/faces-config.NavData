@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="sys/mantenimiento/stAlumno/Edit.xhtml" x="2150" y="300" zoom="true"/>
+        <Node id="sys/mantenimiento/stTallerlaboratorio/View.xhtml" x="900" y="750" zoom="true"/>
+        <Node id="sys/mantenimiento/stUsuariotipo/List.xhtml" x="1650" y="750" zoom="true"/>
+        <Node id="sys/mantenimiento/stLaboratorio/Edit.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="sys/mantenimiento/stAsistencia/Edit.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="sys/mantenimiento/stUsuario/List.xhtml" x="400" y="1200" zoom="true"/>
+        <Node id="sys/mantenimiento/stCiclo/Create.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="sys/mantenimiento/stAlumno/Create.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="sys/mantenimiento/stCurso/List.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="Login/404.html" x="150" y="1200" zoom="true"/>
+        <Node id="sys/mantenimiento/stPago/Edit.xhtml" x="650" y="1200" zoom="true"/>
+        <Node id="sys/mantenimiento/stFormapago/List.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="sys/mantenimiento/stCursotipo/List.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="sys/mantenimiento/stUsuariotipo/View.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="sys/mantenimiento/stFormapago/Edit.xhtml" x="1150" y="750" zoom="true"/>
+        <Node id="sys/mantenimiento/stTaller/Edit.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="sys/mantenimiento/stTaller/View.xhtml" x="900" y="1050" zoom="true"/>
+        <Node id="sys/mantenimiento/stUsuario/View.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="sys/mantenimiento/stFormapago/View.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="sys/mantenimiento/stCursotipo/Create.xhtml" x="150" y="1650" zoom="true"/>
+        <Node id="sys/mantenimiento/stPago/List.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="sys/mantenimiento/stTallerlaboratorio/Edit.xhtml" x="1150" y="1050" zoom="true"/>
+        <Node id="sys/mantenimiento/stCiclo/View.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="sys/mantenimiento/stCurso/View.xhtml" x="650" y="1350" zoom="true"/>
+        <Node id="sys/mantenimiento/stTalleralumno/Edit.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="sys/mantenimiento/stLaboratorio/Create.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="sys/mantenimiento/stUsuariotipo/Edit.xhtml" x="2900" y="150" zoom="true"/>
+        <Node id="resources/ezcomp/menubarT.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="Index/index.xhtml" x="1650" y="450" zoom="true"/>
+        <Node id="sys/mantenimiento/stTaller/Create.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="sys/mantenimiento/stTalleralumno/List.xhtml" x="1650" y="600" zoom="true"/>
+        <Node id="sys/mantenimiento/stTallerlaboratorio/List.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="sys/mantenimiento/stCiclo/Edit.xhtml" x="400" y="1500" zoom="true"/>
+        <Node id="sys/mantenimiento/stCursotipo/Edit.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="sys/mantenimiento/stPago/Create.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="sys/mantenimiento/stAlumno/List.xhtml" x="650" y="1050" zoom="true"/>
+        <Node id="sys/mantenimiento/stUsuario/Create.xhtml" x="2400" y="300" zoom="true"/>
+        <Node id="sys/mantenimiento/stLaboratorio/List.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="sys/mantenimiento/stCiclo/List.xhtml" x="1400" y="750" zoom="true"/>
+        <Node id="sys/mantenimiento/stNota/List.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="sys/mantenimiento/stAsistencia/List.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="sys/mantenimiento/stAsistencia/View.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="sys/mantenimiento/stNota/Create.xhtml" x="400" y="1350" zoom="true"/>
+        <Node id="sys/mantenimiento/stCurso/Edit.xhtml" x="2150" y="450" zoom="true"/>
+        <Node id="sys/mantenimiento/stTallerlaboratorio/Create.xhtml" x="1900" y="450" zoom="true"/>
+        <Node id="sys/mantenimiento/stTalleralumno/Create.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="sys/mantenimiento/stUsuariotipo/Create.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="sys/mantenimiento/stFormapago/Create.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="sys/mantenimiento/stCurso/Create.xhtml" x="1400" y="600" zoom="true"/>
+        <Node id="sys/mantenimiento/stPago/View.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="sys/mantenimiento/stAsistencia/Create.xhtml" x="2150" y="150" zoom="true"/>
+        <Node id="Login/logout.jsp" x="1900" y="600" zoom="true"/>
+        <Node id="Login/403.html" x="1900" y="300" zoom="true"/>
+        <Node id="sys/mantenimiento/stNota/Edit.xhtml" x="650" y="900" zoom="true"/>
+        <Node id="sys/mantenimiento/stAlumno/View.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="sys/mantenimiento/stUsuario/Edit.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="sys/mantenimiento/stLaboratorio/View.xhtml" x="400" y="1050" zoom="true"/>
+        <Node id="sys/mantenimiento/stCursotipo/View.xhtml" x="2400" y="150" zoom="true"/>
+        <Node id="sys/mantenimiento/stTaller/List.xhtml" x="1400" y="900" zoom="true"/>
+        <Node id="sys/mantenimiento/stTalleralumno/View.xhtml" x="150" y="1350" zoom="true"/>
+        <Node id="sys/mantenimiento/stNota/View.xhtml" x="2650" y="150" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

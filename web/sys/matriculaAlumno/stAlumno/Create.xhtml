@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateStAlumnoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputLabel value="#{bundle.CreateStAlumnoLabel_nombreAlumno}" for="nombreAlumno" />
+                    <pou:inputText id="nombreAlumno" value="#{stAlumnoController.selected.nombreAlumno}" title="#{bundle.CreateStAlumnoTitle_nombreAlumno}" required="true" requiredMessage="#{bundle.CreateStAlumnoRequiredMessage_nombreAlumno}"/>
+                    <h:outputLabel value="#{bundle.CreateStAlumnoLabel_apellidoPaternoAlumno}" for="apellidoPaternoAlumno" />
+                    <pou:inputText id="apellidoPaternoAlumno" value="#{stAlumnoController.selected.apellidoPaternoAlumno}" title="#{bundle.CreateStAlumnoTitle_apellidoPaternoAlumno}" required="true" requiredMessage="#{bundle.CreateStAlumnoRequiredMessage_apellidoPaternoAlumno}"/>
+                    <h:outputLabel value="#{bundle.CreateStAlumnoLabel_apellidoMaternoAlumno}" for="apellidoMaternoAlumno" />
+                    <pou:inputText id="apellidoMaternoAlumno" value="#{stAlumnoController.selected.apellidoMaternoAlumno}" title="#{bundle.CreateStAlumnoTitle_apellidoMaternoAlumno}" />
+                    <h:outputLabel value="#{bundle.CreateStAlumnoLabel_correoElectronicoAlumno}" for="correoElectronicoAlumno" />
+                    <pou:inputText id="correoElectronicoAlumno" value="#{stAlumnoController.selected.correoElectronicoAlumno}" title="#{bundle.CreateStAlumnoTitle_correoElectronicoAlumno}" required="true" requiredMessage="#{bundle.CreateStAlumnoRequiredMessage_correoElectronicoAlumno}"/>
+                    <h:outputLabel value="#{bundle.CreateStAlumnoLabel_telefonoFijoAlumno}" for="telefonoFijoAlumno" />
+                    <pou:inputText id="telefonoFijoAlumno" value="#{stAlumnoController.selected.telefonoFijoAlumno}" title="#{bundle.CreateStAlumnoTitle_telefonoFijoAlumno}" required="true" requiredMessage="#{bundle.CreateStAlumnoRequiredMessage_telefonoFijoAlumno}"/>
+                    <h:outputLabel value="#{bundle.CreateStAlumnoLabel_telefonoMovilAlumno}" for="telefonoMovilAlumno" />
+                    <pou:inputText id="telefonoMovilAlumno" value="#{stAlumnoController.selected.telefonoMovilAlumno}" title="#{bundle.CreateStAlumnoTitle_telefonoMovilAlumno}" />
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stAlumnoController.create}" value="#{bundle.CreateStAlumnoSaveLink}" />
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="#{stAlumnoController.prepareList}" value="#{bundle.CreateStAlumnoShowAllLink}" immediate="true"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

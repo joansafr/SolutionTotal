@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewStPagoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputText value="#{bundle.ViewStPagoLabel_montoPago}"/>
+                    <h:outputText value="#{stPagoController.selected.montoPago}" title="#{bundle.ViewStPagoTitle_montoPago}"/>
+                    <h:outputText value="#{bundle.ViewStPagoLabel_codigoTallerAlumno}"/>
+                    <h:outputText value="[#{stPagoController.selected.codigoTallerAlumno.codigoTaller.codigoCiclo.anoCiclo}-#{stPagoController.selected.codigoTallerAlumno.codigoTaller.codigoCiclo.numeroCiclo}] #{stPagoController.selected.codigoTallerAlumno.codigoTaller.codigoCurso.nombreCurso} (#{stPagoController.selected.codigoTallerAlumno.codigoTaller.precioTaller}) - [#{stPagoController.selected.codigoTallerAlumno.codigoAlumno.codigoAlumno}] #{stPagoController.selected.codigoTallerAlumno.codigoAlumno.nombreAlumno} #{stPagoController.selected.codigoTallerAlumno.codigoAlumno.apellidoPaternoAlumno} #{stPagoController.selected.codigoTallerAlumno.codigoAlumno.apellidoMaternoAlumno}" title="#{bundle.ViewStPagoTitle_codigoTallerAlumno}"/>
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stPagoController.destroyAndView}" value="#{bundle.ViewStPagoDestroyLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="Edit" value="#{bundle.ViewStPagoEditLink}"/>
+                <br />
+                <pou:commandButton ajax="false" action="#{stPagoController.prepareCreate}" value="#{bundle.ViewStPagoCreateLink}" />
+                <br />
+                <pou:commandButton ajax="false" action="#{stPagoController.prepareList}" value="#{bundle.ViewStPagoShowAllLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

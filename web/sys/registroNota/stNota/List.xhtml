@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListStNotaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <pou:growl id="growl" />
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListStNotaEmpty}" rendered="#{stNotaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{stNotaController.items.rowCount > 0}">
+                    <pou:dataTable style="width: 95%;margin-right: auto; padding-left: 2%" value="#{stNotaController.items}" var="item"  >
+                        <pou:column>
+                            <f:facet name="header">
+                                <h:outputText value="Opciones de Obj."/>
+                            </f:facet>
+                            <pou:commandButton ajax="false" action="#{stNotaController.prepareView}"  icon="ui-icon-disk"/>
+                            <h:outputText value=" "/>
+                            <pou:commandButton ajax="false" action="#{stNotaController.prepareEdit}"  icon="ui-icon-pencil"/>
+                            <h:outputText value=" "/>
+                            <pou:commandButton ajax="false" action="#{stNotaController.destroy}"  icon="ui-icon-trash"/>
+                        </pou:column>
+                        <pou:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStNotaTitle_nota}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nota}"/>
+                        </pou:column>
+                        <pou:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStNotaTitle_codigoTallerAlumno}"/>
+                            </f:facet>
+                            <h:outputText value="[#{item.codigoTallerAlumno.codigoTaller.codigoCiclo.anoCiclo}-#{item.codigoTallerAlumno.codigoTaller.codigoCiclo.numeroCiclo}] #{item.codigoTallerAlumno.codigoTaller.codigoCurso.nombreCurso} (#{item.codigoTallerAlumno.codigoTaller.precioTaller}) - [#{item.codigoTallerAlumno.codigoAlumno.codigoAlumno}] #{item.codigoTallerAlumno.codigoAlumno.nombreAlumno} #{item.codigoTallerAlumno.codigoAlumno.apellidoPaternoAlumno} #{item.codigoTallerAlumno.codigoAlumno.apellidoMaternoAlumno}"/>
+                        </pou:column>
+                    </pou:dataTable>
+                </h:panelGroup>
+                <br />
+                <pou:commandButton ajax="false" action="#{stNotaController.prepareCreate}" value="#{bundle.ListStNotaCreateLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

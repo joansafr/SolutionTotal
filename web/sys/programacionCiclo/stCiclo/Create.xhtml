@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateStCicloTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputLabel value="#{bundle.CreateStCicloLabel_anoCiclo}" for="anoCiclo" />
+                    <pou:inputMask id="anoCiclo" value="#{stCicloController.selected.anoCiclo}" title="#{bundle.CreateStCicloTitle_anoCiclo}" mask="9999"/>  
+                    <h:outputLabel value="#{bundle.CreateStCicloLabel_numeroCiclo}" for="numeroCiclo" />
+                    <pou:inputMask id="numeroCiclo" value="#{stCicloController.selected.numeroCiclo}" title="#{bundle.CreateStCicloTitle_numeroCiclo}" mask="99"/> 
+                    <h:outputLabel value="#{bundle.CreateStCicloLabel_fechaInicioCiclo}" for="fechaInicioCiclo" />
+                    <pou:calendar id="fechaInicioCiclo" value="#{stCicloController.selected.fechaInicioCiclo}" title="#{bundle.CreateStCicloTitle_fechaInicioCiclo}" pattern="yyyy-MM-dd" />
+                    <h:outputLabel value="#{bundle.CreateStCicloLabel_fechaFinCiclo}" for="fechaFinCiclo" />
+                    <pou:calendar id="fechaFinCiclo" value="#{stCicloController.selected.fechaFinCiclo}" title="#{bundle.CreateStCicloTitle_fechaFinCiclo}" pattern="yyyy-MM-dd" />
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stCicloController.create}" value="#{bundle.CreateStCicloSaveLink}" />
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="#{stCicloController.prepareList}" value="#{bundle.CreateStCicloShowAllLink}" immediate="true"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

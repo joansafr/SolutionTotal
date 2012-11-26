@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateStUsuarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputLabel value="#{bundle.CreateStUsuarioLabel_nombreUsuario}" for="nombreUsuario" />
+                    <pou:inputText id="nombreUsuario" value="#{stUsuarioController.selected.nombreUsuario}" title="#{bundle.CreateStUsuarioTitle_nombreUsuario}" required="true" requiredMessage="#{bundle.CreateStUsuarioRequiredMessage_nombreUsuario}"/>
+                    <h:outputLabel value="#{bundle.CreateStUsuarioLabel_apellidoPaternoUsuario}" for="apellidoPaternoUsuario" />
+                    <pou:inputText id="apellidoPaternoUsuario" value="#{stUsuarioController.selected.apellidoPaternoUsuario}" title="#{bundle.CreateStUsuarioTitle_apellidoPaternoUsuario}" required="true" requiredMessage="#{bundle.CreateStUsuarioRequiredMessage_apellidoPaternoUsuario}"/>
+                    <h:outputLabel value="#{bundle.CreateStUsuarioLabel_apellidoMaternoUsuario}" for="apellidoMaternoUsuario" />
+                    <pou:inputText id="apellidoMaternoUsuario" value="#{stUsuarioController.selected.apellidoMaternoUsuario}" title="#{bundle.CreateStUsuarioTitle_apellidoMaternoUsuario}" />
+                    <h:outputLabel value="#{bundle.CreateStUsuarioLabel_identificadorUsuario}" for="identificadorUsuario" />
+                    <pou:inputText id="identificadorUsuario" value="#{stUsuarioController.selected.identificadorUsuario}" title="#{bundle.CreateStUsuarioTitle_identificadorUsuario}" required="true" requiredMessage="#{bundle.CreateStUsuarioRequiredMessage_identificadorUsuario}"/>
+                    <h:outputLabel value="#{bundle.CreateStUsuarioLabel_contrasenaUsuario}" for="contrasenaUsuario" />
+                    <pou:inputText id="contrasenaUsuario" value="#{stUsuarioController.selected.contrasenaUsuario}" title="#{bundle.CreateStUsuarioTitle_contrasenaUsuario}" required="true" requiredMessage="#{bundle.CreateStUsuarioRequiredMessage_contrasenaUsuario}"/>
+                    <h:outputLabel value="#{bundle.CreateStUsuarioLabel_codigoUsuarioTipo}" for="codigoUsuarioTipo" />
+                    <pou:selectOneMenu id="codigoUsuarioTipo" value="#{stUsuarioController.selected.codigoUsuarioTipo}" title="#{bundle.CreateStUsuarioTitle_codigoUsuarioTipo}" >
+                        <f:selectItems value="#{stUsuariotipoController.itemsAvailableSelectOne}"/>
+                    </pou:selectOneMenu>
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stUsuarioController.create}" value="#{bundle.CreateStUsuarioSaveLink}" />
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="#{stUsuarioController.prepareList}" value="#{bundle.CreateStUsuarioShowAllLink}" immediate="true"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

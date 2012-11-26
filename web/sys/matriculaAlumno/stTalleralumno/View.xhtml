@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewStTalleralumnoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputText value="#{bundle.ViewStTalleralumnoLabel_codigoTallerAlumno}"/>
+                    <h:outputText value="#{stTalleralumnoController.selected.codigoTallerAlumno}" title="#{bundle.ViewStTalleralumnoTitle_codigoTallerAlumno}"/>
+                    <h:outputText value="#{bundle.ViewStTalleralumnoLabel_codigoFormaPago}"/>
+                    <h:outputText value="#{stTalleralumnoController.selected.codigoFormaPago}" title="#{bundle.ViewStTalleralumnoTitle_codigoFormaPago}"/>
+                    <h:outputText value="#{bundle.ViewStTalleralumnoLabel_codigoTaller}"/>
+                    <h:outputText value="#{stTalleralumnoController.selected.codigoTaller}" title="#{bundle.ViewStTalleralumnoTitle_codigoTaller}"/>
+                    <h:outputText value="#{bundle.ViewStTalleralumnoLabel_codigoAlumno}"/>
+                    <h:outputText value="#{stTalleralumnoController.selected.codigoAlumno}" title="#{bundle.ViewStTalleralumnoTitle_codigoAlumno}"/>
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stTalleralumnoController.destroyAndView}" value="#{bundle.ViewStTalleralumnoDestroyLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="Edit" value="#{bundle.ViewStTalleralumnoEditLink}"/>
+                <br />
+                <pou:commandButton ajax="false" action="#{stTalleralumnoController.prepareCreate}" value="#{bundle.ViewStTalleralumnoCreateLink}" />
+                <br />
+                <pou:commandButton ajax="false" action="#{stTalleralumnoController.prepareList}" value="#{bundle.ViewStTalleralumnoShowAllLink}"/>
+
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

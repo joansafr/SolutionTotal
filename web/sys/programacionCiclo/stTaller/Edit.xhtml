@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditStTallerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputLabel value="#{bundle.EditStTallerLabel_codigoCurso}" for="codigoCurso" />
+                    <pou:selectOneMenu id="codigoCurso" value="#{stTallerController.selected.codigoCurso}" title="#{bundle.EditStTallerTitle_codigoCurso}" required="true" requiredMessage="#{bundle.EditStTallerRequiredMessage_codigoCurso}">
+                        <f:selectItems value="#{stCursoController.itemsAvailableSelectOne}"/>
+                    </pou:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditStTallerLabel_codigoCiclo}" for="codigoCiclo" />
+                    <pou:selectOneMenu id="codigoCiclo" value="#{stTallerController.selected.codigoCiclo}" title="#{bundle.EditStTallerTitle_codigoCiclo}" required="true" requiredMessage="#{bundle.EditStTallerRequiredMessage_codigoCiclo}">
+                        <f:selectItems value="#{stCicloController.itemsAvailableSelectOne}"/>
+                    </pou:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditStTallerLabel_cantidadHorasTaller}" for="cantidadHorasTaller" />
+                    <pou:inputText id="cantidadHorasTaller" value="#{stTallerController.selected.cantidadHorasTaller}" title="#{bundle.EditStTallerTitle_cantidadHorasTaller}" required="true" requiredMessage="#{bundle.EditStTallerRequiredMessage_cantidadHorasTaller}"/>
+                    <h:outputLabel value="#{bundle.EditStTallerLabel_precioTaller}" for="precioTaller" />
+                    <pou:inputText id="precioTaller" value="#{stTallerController.selected.precioTaller}" title="#{bundle.EditStTallerTitle_precioTaller}" required="true" requiredMessage="#{bundle.EditStTallerRequiredMessage_precioTaller}"/>
+                </pou:panelGrid>
+                <pou:commandButton ajax="false" action="#{stTallerController.update}" value="#{bundle.EditStTallerSaveLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="View" value="#{bundle.EditStTallerViewLink}" immediate="true"/>
+                <br />
+                <pou:commandButton ajax="false" action="#{stTallerController.prepareList}" value="#{bundle.EditStTallerShowAllLink}" immediate="true"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

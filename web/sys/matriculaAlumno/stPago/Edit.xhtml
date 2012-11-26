@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditStPagoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputLabel value="#{bundle.EditStPagoLabel_montoPago}" for="montoPago" />
+                    <pou:inputText id="montoPago" value="#{stPagoController.selected.montoPago}" title="#{bundle.EditStPagoTitle_montoPago}" required="true" requiredMessage="#{bundle.EditStPagoRequiredMessage_montoPago}"/>
+                    <h:outputLabel value="#{bundle.EditStPagoLabel_codigoTallerAlumno}" for="codigoTallerAlumno" />
+                    <pou:selectOneMenu id="codigoTallerAlumno" value="#{stPagoController.selected.codigoTallerAlumno}" title="#{bundle.EditStPagoTitle_codigoTallerAlumno}" required="true" requiredMessage="#{bundle.EditStPagoRequiredMessage_codigoTallerAlumno}">
+                        <f:selectItems value="#{stTalleralumnoController.itemsAvailableSelectOne}"/>
+                    </pou:selectOneMenu>
+                </pou:panelGrid>
+                <pou:commandButton ajax="false" action="#{stPagoController.update}" value="#{bundle.EditStPagoSaveLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="View" value="#{bundle.EditStPagoViewLink}" immediate="true"/>
+                <br />
+                <pou:commandButton ajax="false" action="#{stPagoController.prepareList}" value="#{bundle.EditStPagoShowAllLink}" immediate="true"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

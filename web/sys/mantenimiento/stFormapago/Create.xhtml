@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateStFormapagoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputLabel value="#{bundle.CreateStFormapagoLabel_descripcionFormaPago}" for="descripcionFormaPago" />
+                    <pou:inputText id="descripcionFormaPago" value="#{stFormapagoController.selected.descripcionFormaPago}" title="#{bundle.CreateStFormapagoTitle_descripcionFormaPago}" required="true" requiredMessage="#{bundle.CreateStFormapagoRequiredMessage_descripcionFormaPago}"/>
+                    <h:outputLabel value="#{bundle.CreateStFormapagoLabel_interesFormaPago}" for="interesFormaPago" />
+                    <pou:inputText id="interesFormaPago" value="#{stFormapagoController.selected.interesFormaPago}" title="#{bundle.CreateStFormapagoTitle_interesFormaPago}" required="true" requiredMessage="#{bundle.CreateStFormapagoRequiredMessage_interesFormaPago}"/>
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stFormapagoController.create}" value="#{bundle.CreateStFormapagoSaveLink}" />
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="#{stFormapagoController.prepareList}" value="#{bundle.CreateStFormapagoShowAllLink}" immediate="true"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

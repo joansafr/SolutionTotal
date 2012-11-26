@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateStLaboratorioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputLabel value="#{bundle.CreateStLaboratorioLabel_pabellonLaboratorio}" for="pabellonLaboratorio" />
+                    <pou:inputMask id="pabellonLaboratorio" value="#{stLaboratorioController.selected.pabellonLaboratorio}" title="#{bundle.CreateStLaboratorioTitle_pabellonLaboratorio}" mask="a"/>
+                    <h:outputLabel value="#{bundle.CreateStLaboratorioLabel_pisoLaboratorio}" for="pisoLaboratorio" />
+                    <pou:spinner id="pisoLaboratorio" value="#{stLaboratorioController.selected.pisoLaboratorio}" title="#{bundle.CreateStLaboratorioTitle_pisoLaboratorio}" required="true"  min="1" max="9"/>
+                    <h:outputLabel value="#{bundle.CreateStLaboratorioLabel_numeroLaboratorio}" for="numeroLaboratorio" />
+                    <pou:spinner id="numeroLaboratorio" value="#{stLaboratorioController.selected.numeroLaboratorio}" title="#{bundle.CreateStLaboratorioTitle_numeroLaboratorio}" required="true"  min="1" max="80"/>
+                    <h:outputLabel value="#{bundle.CreateStLaboratorioLabel_maximaCapacidadLaboratorio}" for="maximaCapacidadLaboratorio" />
+                    <pou:spinner id="maximaCapacidadLaboratorio" value="#{stLaboratorioController.selected.maximaCapacidadLaboratorio}" title="#{bundle.CreateStLaboratorioTitle_maximaCapacidadLaboratorio}" required="true" requiredMessage="#{bundle.EditStLaboratorioRequiredMessage_maximaCapacidadLaboratorio}" min="0" max="24"/> 
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stLaboratorioController.create}" value="#{bundle.CreateStLaboratorioSaveLink}" />
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="#{stLaboratorioController.prepareList}" value="#{bundle.CreateStLaboratorioShowAllLink}" immediate="true"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

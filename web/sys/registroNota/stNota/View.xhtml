@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewStNotaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputText value="#{bundle.ViewStNotaLabel_nota}"/>
+                    <h:outputText value="#{stNotaController.selected.nota}" title="#{bundle.ViewStNotaTitle_nota}"/>
+                    <h:outputText value="#{bundle.ViewStNotaLabel_codigoTallerAlumno}"/>
+                    <h:outputText value="[#{stNotaController.selected.codigoTallerAlumno.codigoTaller.codigoCiclo.anoCiclo}-#{stNotaController.selected.codigoTallerAlumno.codigoTaller.codigoCiclo.numeroCiclo}] #{stNotaController.selected.codigoTallerAlumno.codigoTaller.codigoCurso.nombreCurso} (#{stNotaController.selected.codigoTallerAlumno.codigoTaller.precioTaller}) - [#{stNotaController.selected.codigoTallerAlumno.codigoAlumno.codigoAlumno}] #{stNotaController.selected.codigoTallerAlumno.codigoAlumno.nombreAlumno} #{stNotaController.selected.codigoTallerAlumno.codigoAlumno.apellidoPaternoAlumno} #{stNotaController.selected.codigoTallerAlumno.codigoAlumno.apellidoMaternoAlumno}" title="#{bundle.ViewStNotaTitle_codigoTallerAlumno}"/>
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stNotaController.destroyAndView}" value="#{bundle.ViewStNotaDestroyLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="Edit" value="#{bundle.ViewStNotaEditLink}"/>
+                <br />
+                <pou:commandButton ajax="false" action="#{stNotaController.prepareCreate}" value="#{bundle.ViewStNotaCreateLink}" />
+                <br />
+                <pou:commandButton ajax="false" action="#{stNotaController.prepareList}" value="#{bundle.ViewStNotaShowAllLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

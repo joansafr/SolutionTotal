@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewStTallerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputText value="#{bundle.ViewStTallerLabel_codigoCurso}"/>
+                    <h:outputText value="#{stTallerController.selected.codigoCurso.nombreCurso}" title="#{bundle.ViewStTallerTitle_codigoCurso}"/>
+                    <h:outputText value="#{bundle.ViewStTallerLabel_codigoCiclo}"/>
+                    <h:outputText value="#{stTallerController.selected.codigoCiclo.anoCiclo}-#{stTallerController.selected.codigoCiclo.numeroCiclo}" title="#{bundle.ViewStTallerTitle_codigoCiclo}"/>
+                    <h:outputText value="#{bundle.ViewStTallerLabel_cantidadHorasTaller}"/>
+                    <h:outputText value="#{stTallerController.selected.cantidadHorasTaller}" title="#{bundle.ViewStTallerTitle_cantidadHorasTaller}"/>
+                    <h:outputText value="#{bundle.ViewStTallerLabel_precioTaller}"/>
+                    <h:outputText value="#{stTallerController.selected.precioTaller}" title="#{bundle.ViewStTallerTitle_precioTaller}"/>
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stTallerController.destroyAndView}" value="#{bundle.ViewStTallerDestroyLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="Edit" value="#{bundle.ViewStTallerEditLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="#{stTallerController.prepareCreate}" value="#{bundle.ViewStTallerCreateLink}" />
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="#{stTallerController.prepareList}" value="#{bundle.ViewStTallerShowAllLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditStCursoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputLabel value="#{bundle.EditStCursoLabel_nombreCurso}" for="nombreCurso" />
+                    <pou:inputText id="nombreCurso" value="#{stCursoController.selected.nombreCurso}" title="#{bundle.EditStCursoTitle_nombreCurso}" required="true" requiredMessage="#{bundle.EditStCursoRequiredMessage_nombreCurso}"/>
+                    <h:outputLabel value="#{bundle.EditStCursoLabel_maximaCantidadHorasCurso}" for="maximaCantidadHorasCurso" />
+                    <pou:spinner id="maximaCantidadHorasCurso" value="#{stCursoController.selected.maximaCantidadHorasCurso}" title="#{bundle.EditStCursoTitle_maximaCantidadHorasCurso}" required="true" requiredMessage="#{bundle.EditStCursoRequiredMessage_maximaCantidadHorasCurso}"  min="0" max="400"/> 
+                    <h:outputLabel value="#{bundle.EditStCursoLabel_codigoCursoTipo}" for="codigoCursoTipo" />
+                    <pou:selectOneMenu id="codigoCursoTipo" value="#{stCursoController.selected.codigoCursoTipo}" title="#{bundle.EditStCursoTitle_codigoCursoTipo}" >
+                        <f:selectItems value="#{stCursotipoController.itemsAvailableSelectOne}"/>
+                    </pou:selectOneMenu>
+                </pou:panelGrid>
+                <pou:commandButton ajax="false" action="#{stCursoController.update}" value="#{bundle.EditStCursoSaveLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="View" value="#{bundle.EditStCursoViewLink}" immediate="true"/>
+                <br />
+                <pou:commandButton ajax="false" action="#{stCursoController.prepareList}" value="#{bundle.EditStCursoShowAllLink}" immediate="true"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewStTallerlaboratorioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputText value="#{bundle.ViewStTallerlaboratorioLabel_codigoLaboratorio}"/>
+                    <h:outputText value="#{stTallerlaboratorioController.selected.codigoLaboratorio.pabellonLaboratorio}-#{stTallerlaboratorioController.selected.codigoLaboratorio.pisoLaboratorio}-#{stTallerlaboratorioController.selected.codigoLaboratorio.numeroLaboratorio}" title="#{bundle.ViewStTallerlaboratorioTitle_codigoLaboratorio}"/>
+                    <h:outputText value="#{bundle.ViewStTallerlaboratorioLabel_codigoTaller}"/>
+                    <h:outputText value="[#{stTallerlaboratorioController.selected.codigoTaller.codigoCiclo.anoCiclo}-#{stTallerlaboratorioController.selected.codigoTaller.codigoCiclo.numeroCiclo}] #{stTallerlaboratorioController.selected.codigoTaller.codigoCurso.nombreCurso} (#{stTallerlaboratorioController.selected.codigoTaller.precioTaller})" title="#{bundle.ViewStTallerlaboratorioTitle_codigoTaller}"/>
+                    <h:outputText value="#{bundle.ViewStTallerlaboratorioLabel_fechaTallerLaboratorio}"/>
+                    <h:outputText value="#{stTallerlaboratorioController.selected.fechaTallerLaboratorio}" title="#{bundle.ViewStTallerlaboratorioTitle_fechaTallerLaboratorio}">
+                        <f:convertDateTime pattern="yyyy-MM-dd" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewStTallerlaboratorioLabel_horaInicioTallerLaboratorio}"/>
+                    <h:outputText value="#{stTallerlaboratorioController.selected.horaInicioTallerLaboratorio}" title="#{bundle.ViewStTallerlaboratorioTitle_horaInicioTallerLaboratorio}">
+                        <f:convertDateTime pattern="HH:mm" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewStTallerlaboratorioLabel_horaTerminoTallerLaboratorio}"/>
+                    <h:outputText value="#{stTallerlaboratorioController.selected.horaTerminoTallerLaboratorio}" title="#{bundle.ViewStTallerlaboratorioTitle_horaTerminoTallerLaboratorio}">
+                        <f:convertDateTime pattern="HH:mm" />
+                    </h:outputText>
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stTallerlaboratorioController.destroyAndView}" value="#{bundle.ViewStTallerlaboratorioDestroyLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="Edit" value="#{bundle.ViewStTallerlaboratorioEditLink}"/>
+                <br />
+                <pou:commandButton ajax="false" action="#{stTallerlaboratorioController.prepareCreate}" value="#{bundle.ViewStTallerlaboratorioCreateLink}" />
+                <br />
+                <pou:commandButton ajax="false" action="#{stTallerlaboratorioController.prepareList}" value="#{bundle.ViewStTallerlaboratorioShowAllLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

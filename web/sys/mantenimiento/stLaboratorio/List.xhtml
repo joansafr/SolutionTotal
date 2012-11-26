@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListStLaboratorioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <pou:growl id="growl" />
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListStLaboratorioEmpty}" rendered="#{stLaboratorioController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{stLaboratorioController.items.rowCount > 0}">
+                    <pou:dataTable style="width: 95%;margin-right: auto; padding-left: 2%" value="#{stLaboratorioController.items}" var="item"  >
+                        <pou:column>
+                            <f:facet name="header">
+                                <h:outputText value="Opciones de Obj."/>
+                            </f:facet>
+                            <pou:commandButton ajax="false" action="#{stLaboratorioController.prepareView}" icon="ui-icon-disk"/>
+                            <h:outputText value=" "/>
+                            <pou:commandButton ajax="false" action="#{stLaboratorioController.prepareEdit}" icon="ui-icon-pencil"/>
+                            <h:outputText value=" "/>
+                            <pou:commandButton ajax="false" action="#{stLaboratorioController.destroy}" icon="ui-icon-trash"/>
+                        </pou:column>
+                        <pou:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStLaboratorioTitle_codigoLaboratorio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pabellonLaboratorio}-#{item.pisoLaboratorio}-#{item.numeroLaboratorio}"/>
+                        </pou:column>
+                        <pou:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStLaboratorioTitle_pabellonLaboratorio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pabellonLaboratorio}"/>
+                        </pou:column>
+                        <pou:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStLaboratorioTitle_pisoLaboratorio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pisoLaboratorio}"/>
+                        </pou:column>
+                        <pou:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStLaboratorioTitle_numeroLaboratorio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroLaboratorio}"/>
+                        </pou:column>
+                        <pou:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListStLaboratorioTitle_maximaCapacidadLaboratorio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.maximaCapacidadLaboratorio}"/>
+                        </pou:column>
+                    </pou:dataTable>
+                </h:panelGroup>
+                <br />
+                <pou:commandButton ajax="false" action="#{stLaboratorioController.prepareCreate}" value="#{bundle.ListStLaboratorioCreateLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:pou="http://primefaces.org/ui">
+
+    <ui:composition template="/sys/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewStCursotipoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <pou:growl id="growl" />
+            </h:panelGroup>
+            <h:form>
+                <pou:panelGrid columns="6" style="width: 90%;margin-left: auto; margin-right: auto">
+                    <h:outputText value="#{bundle.ViewStCursotipoLabel_nombreCursoTipo}"/>
+                    <h:outputText value="#{stCursotipoController.selected.nombreCursoTipo}" title="#{bundle.ViewStCursotipoTitle_nombreCursoTipo}"/>
+                </pou:panelGrid>
+                <br />
+                <pou:commandButton ajax="false" action="#{stCursotipoController.destroyAndView}" value="#{bundle.ViewStCursotipoDestroyLink}"/>
+                <br />
+                <br />
+                <pou:commandButton ajax="false" action="Edit" value="#{bundle.ViewStCursotipoEditLink}"/>
+                <br />
+                <pou:commandButton ajax="false" action="#{stCursotipoController.prepareCreate}" value="#{bundle.ViewStCursotipoCreateLink}" />
+                <br />
+                <pou:commandButton ajax="false" action="#{stCursotipoController.prepareList}" value="#{bundle.ViewStCursotipoShowAllLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
